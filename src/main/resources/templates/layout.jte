@@ -9,8 +9,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/mvp.css">
-    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="stylesheet" href="css/mvp.css">
+    <link rel="stylesheet" href="css/custom.css">
     @if(pageContext.description() != null)
         <meta name="description" content="${pageContext.description()}">
     @endif
