@@ -1,3 +1,13 @@
 h1 {
     color: coral;
 }
+
+.invalid-field {
+    background: #ffe6ee;
+    border: 1px solid #b1395f;
+}
+
+.invalid-message {
+    color: #c12020;
+    font-weight: bold;
+}

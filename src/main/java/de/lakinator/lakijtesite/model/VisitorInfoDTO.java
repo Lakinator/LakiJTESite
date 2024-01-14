@@ -1,4 +1,4 @@
 package de.lakinator.lakijtesite.model;
 
-public record VisitorInfo( long count ) {
+public record VisitorInfoDTO(long count) {
 }

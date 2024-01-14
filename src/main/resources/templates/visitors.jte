@@ -1,8 +1,8 @@
 @import de.lakinator.lakijtesite.model.PageContext
-@import de.lakinator.lakijtesite.model.VisitorInfo
+@import de.lakinator.lakijtesite.model.VisitorInfoDTO
 
 @param PageContext pageContext
-@param VisitorInfo visitorInfo
+@param de.lakinator.lakijtesite.model.VisitorInfoDTO visitorInfo
 
 @template.layout(pageContext = pageContext,
 content = @`

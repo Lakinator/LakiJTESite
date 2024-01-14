@@ -19,9 +19,9 @@
 <body>
 <h1>${pageContext.title()}</h1>
 @if (content != null)
-    <div class="content">
+    <main>
         ${content}
-    </div>
+    </main>
 @else
     <div>
         <p>Got to the visitor page <a href="/visitors">here</a></p>
