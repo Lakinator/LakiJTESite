@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -47,20 +48,25 @@ public class MainController {
     }
 
     @PostMapping( "/registration" )
-    public String register( Model model, HttpServletRequest request ) {
+    public String register( Model model, HttpServletRequest request,
+                            @RequestParam( "username" ) String username,
+                            @RequestParam( "email" ) String email,
+                            @RequestParam( "password" ) String password,
+                            @RequestParam( "passwordConfirm" ) String passwordConfirm ) {
         model.addAttribute( "pageContext", new PageContext( "Cool page", "Nice description" ) );
 
-        UserDTO userDTO = new UserDTO( request.getParameterMap() );
+        UserDTO userDTO = new UserDTO( username, email, password );
 
-        // TODO: check if username exists
-
-        if ( !userDTO.getPassword().equals( userDTO.getPasswordConfirm() ) ) {
+        if ( !userDTO.getPassword().equals( passwordConfirm ) ) {
             model.addAttribute( "passwordErrors", new String[]{ "Passwords don't match!" } );
             model.addAttribute( "user", userDTO );
+
             return "registration";
         }
 
-        return "layout";
+        // TODO: check if username exists
+
+        return "redirect:/visitors";
     }
 
 }

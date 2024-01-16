@@ -17,24 +17,26 @@
     <title>${pageContext.title()}</title>
 </head>
 <body>
-<h1>${pageContext.title()}</h1>
+<header>
+    <h1>${pageContext.title()}</h1>
+</header>
 @if (content != null)
     <main>
         ${content}
     </main>
 @else
-    <div>
+    <main>
         <p>Got to the visitor page <a href="/visitors">here</a></p>
-    </div>
+    </main>
 @endif
 @if (footer != null)
-    <div class="footer">
+    <footer>
         ${footer}
-    </div>
+    </footer>
 @else
-    <div class="footer">
+    <footer>
         <p>Here would be a footer if it wasn't empty!</p>
-    </div>
+    </footer>
 @endif
 </body>
 </html>

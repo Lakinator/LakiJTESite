@@ -12,11 +12,12 @@ content = @`
         <header>
             <h2>Registration Form</h2>
         </header>
+
         <%-- Username input --%>
         <label for="nameInput">Username:</label>
         <input class="${usernameErrors.length != 0 ? "invalid-field": ""}"
                value="${user != null ? user.getName() : ""}"
-               type="text" id="nameInput" name="name" placeholder="Username"
+               type="text" id="nameInput" name="username" placeholder="Username"
                minlength="4" maxlength="32" required>
         @for(String usernameError : usernameErrors)
             <p class="invalid-message">${usernameError}</p>
@@ -45,6 +46,6 @@ content = @`
     </form>
 `,
 footer = @`
-    <p>have fun registering!</p>
+    <p>Have fun registering!</p>
 `
 )

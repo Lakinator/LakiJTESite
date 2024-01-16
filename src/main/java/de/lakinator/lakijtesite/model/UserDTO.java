@@ -1,8 +1,6 @@
 package de.lakinator.lakijtesite.model;
 
-import java.util.Map;
-
-public class UserDTO extends JTEModel {
+public class UserDTO {
 
     private String name;
 
@@ -10,14 +8,7 @@ public class UserDTO extends JTEModel {
 
     private String password;
 
-    private String passwordConfirm;
-
-    public UserDTO( Map<String, String[]> parameterMap ) {
-        super( parameterMap );
-    }
-
-    public UserDTO( Map<String, String[]> parameterMap, String name, String email, String password ) {
-        super( parameterMap );
+    public UserDTO( String name, String email, String password ) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -45,13 +36,5 @@ public class UserDTO extends JTEModel {
 
     public void setPassword( String password ) {
         this.password = password;
-    }
-
-    public String getPasswordConfirm( ) {
-        return passwordConfirm;
-    }
-
-    public void setPasswordConfirm( String passwordConfirm ) {
-        this.passwordConfirm = passwordConfirm;
     }
 }
