@@ -1,6 +1,6 @@
-package de.lakinator.lakijtesite.config;
+package de.lakinator.lakijtesite.persistence.config;
 
-import de.lakinator.lakijtesite.persistence.DataRoot;
+import de.lakinator.lakijtesite.persistence.model.DataRoot;
 import org.eclipse.store.storage.embedded.configuration.types.EmbeddedStorageConfiguration;
 import org.eclipse.store.storage.embedded.configuration.types.EmbeddedStorageConfigurationBuilder;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
@@ -26,7 +26,7 @@ public class StorageConfig {
             storageManager.storeRoot();
         }
 
-        return (DataRoot) storageManager.root();
+        return ( DataRoot ) storageManager.root();
     }
 
 }

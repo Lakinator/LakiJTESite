@@ -3,7 +3,7 @@ package de.lakinator.lakijtesite.controller;
 import de.lakinator.lakijtesite.model.PageContext;
 import de.lakinator.lakijtesite.model.UserDTO;
 import de.lakinator.lakijtesite.model.VisitorInfoDTO;
-import de.lakinator.lakijtesite.persistence.DataRoot;
+import de.lakinator.lakijtesite.persistence.model.DataRoot;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
