@@ -19,14 +19,14 @@ public class CustomSecurityConfig {
         http
                 .csrf( AbstractHttpConfigurer::disable )
                 .authorizeHttpRequests( ( requests ) -> requests
-                        .requestMatchers( "/", "/login", "/registration", "/css/**", "/js/**", "img/**" ).permitAll()
+                        .requestMatchers( "/", "/login", "/registration", "/error", "/css/**", "/js/**", "img/**" ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin( ( form ) -> form
                         .loginPage( "/login" )
                         .permitAll()
                 )
-                .logout( LogoutConfigurer::permitAll );
+                .logout( LogoutConfigurer::permitAll ); // TODO: custom logout screen etc.
 
         return http.build();
     }

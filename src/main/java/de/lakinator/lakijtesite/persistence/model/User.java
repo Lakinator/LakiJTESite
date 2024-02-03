@@ -15,7 +15,7 @@ public class User implements UserDetails {
 
     private String password;
 
-    private List<SimpleGrantedAuthority> roles;
+    private List<String> roles;
 
     private boolean active;
 
@@ -34,13 +34,17 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public void setRoles( List<SimpleGrantedAuthority> roles ) {
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles( List<String> roles ) {
         this.roles = roles;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return roles.stream().map( SimpleGrantedAuthority::new ).toList();
     }
 
     @Override

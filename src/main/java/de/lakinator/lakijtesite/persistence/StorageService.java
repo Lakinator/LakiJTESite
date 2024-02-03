@@ -3,7 +3,6 @@ package de.lakinator.lakijtesite.persistence;
 import de.lakinator.lakijtesite.persistence.model.DataRoot;
 import de.lakinator.lakijtesite.persistence.model.User;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +34,7 @@ public class StorageService {
     }
 
     public boolean addStandardUser( User user ) {
-        user.setRoles( List.of( new SimpleGrantedAuthority( "STANDARD" ) ) );
+        user.setRoles( List.of( "STANDARD" ) );
 
         return addUser( user );
     }

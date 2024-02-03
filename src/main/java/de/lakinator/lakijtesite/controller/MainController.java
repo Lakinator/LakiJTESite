@@ -64,7 +64,9 @@ public class MainController {
             return "registration";
         }
 
-        storageService.addStandardUser( new User( userDTO.username(), userDTO.email(), userDTO.password() ) );
+        if ( !storageService.addStandardUser( new User( userDTO.username(), userDTO.email(), userDTO.password() ) ) ) {
+            return "redirect:/error?code=123";
+        }
 
         return "redirect:/login";
     }
