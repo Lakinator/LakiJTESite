@@ -1,5 +1,6 @@
 @import de.lakinator.lakijtesite.model.PageContext
 @import de.lakinator.lakijtesite.model.UserDTO
+@import java.util.List
 
 @param PageContext pageContext
 @param UserDTO user = null
@@ -16,7 +17,7 @@ content = @`
         <%-- Username input --%>
         <label for="nameInput">Username:</label>
         <input class="${usernameErrors.length != 0 ? "invalid-field": ""}"
-               value="${user != null ? user.getName() : ""}"
+               value="${user != null ? user.username() : ""}"
                type="text" id="nameInput" name="username" placeholder="Username"
                minlength="4" maxlength="32" required>
         @for(String usernameError : usernameErrors)
@@ -25,12 +26,12 @@ content = @`
 
         <%-- E-Mail input --%>
         <label for="mailInput">E-Mail</label>
-        <input value="${user != null ? user.getEmail() : ""}"
+        <input value="${user != null ? user.email() : ""}"
                type="email" id="mailInput" name="email" placeholder="test@example.com" required>
 
         <%-- Password input --%>
         <label for="passwordInput">Password:</label>
-        <input value="${user != null ? user.getPassword(): ""}" type="password" id="passwordInput" name="password"
+        <input value="${user != null ? user.password(): ""}" type="password" id="passwordInput" name="password"
                minlength="6" maxlength="32" required>
 
         <%-- Password confirmation input --%>
@@ -46,6 +47,6 @@ content = @`
     </form>
 `,
 footer = @`
-    <p>Have fun registering!</p>
+    <p>Login <a href="/login">here</a></p>
 `
 )
