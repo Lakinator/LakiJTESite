@@ -2,11 +2,24 @@
 @import de.lakinator.lakijtesite.model.VisitorInfoDTO
 
 @param PageContext pageContext
-@param de.lakinator.lakijtesite.model.VisitorInfoDTO visitorInfo
+@param VisitorInfoDTO visitorInfo
 
 @template.layout(pageContext = pageContext,
 content = @`
-    <p>You are visitor number ${visitorInfo.count()}!</p>
+    <hr>
+    <section>
+        <header>
+            <h2>Visitor Stats</h2>
+            <p>No cookies involved</p>
+        </header>
+        <aside>
+            <h3>This site has been visited
+                <mark>${visitorInfo.count()}</mark>
+                times
+            </h3>
+            <p>Not unique views</p>
+        </aside>
+    </section>
 `,
 footer = @`
     <p>Thanks for visiting, come again soon!</p>

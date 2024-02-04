@@ -1,4 +1,9 @@
 package de.lakinator.lakijtesite.model;
 
-public record UserDTO( String username, String email, String password, String passwordConfirm ) {
+import de.lakinator.lakijtesite.persistence.model.User;
+
+public record UserDTO( String username, String email ) {
+    public UserDTO( User user ) {
+        this( user.getUsername(), user.getEmail() );
+    }
 }
