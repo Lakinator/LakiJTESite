@@ -32,6 +32,8 @@ public class MainController {
             return "redirect:/error?code=124";
         }
 
+        // TODO: add error message on wrong login
+
         model.addAttribute( "pageContext", new PageContext( "Cool page", "Nice description", user ) );
         return "login";
     }

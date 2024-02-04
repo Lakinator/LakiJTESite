@@ -6,7 +6,6 @@ import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,7 +33,9 @@ public class StorageService {
     }
 
     public boolean addStandardUser( User user ) {
-        user.setRoles( List.of( "STANDARD" ) );
+        if ( !user.getRoles().contains( "STANDARD" ) ) {
+            user.getRoles().add( "STANDARD" );
+        }
 
         return addUser( user );
     }
