@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class DataRoot {
 
-    private final Map<String, User> userMap;
-
     private long visitorCount;
+
+    private final Map<String, User> userMap;
 
     public DataRoot() {
         visitorCount = 0;

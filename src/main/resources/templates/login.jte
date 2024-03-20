@@ -1,9 +1,10 @@
 @import de.lakinator.lakijtesite.model.PageContext
-@import de.lakinator.lakijtesite.model.AuthenticationUserDTO
+@import de.lakinator.lakijtesite.registration.AuthenticationUserDTO
 
 @param PageContext pageContext
 @param AuthenticationUserDTO user = null
 @param String[] passwordErrors = new String[]{}
+@param Boolean loginError = false
 
 @template.layout(pageContext = pageContext,
 content = @`
@@ -12,6 +13,10 @@ content = @`
             <header>
                 <h2>Login Form</h2>
             </header>
+
+            @if(loginError)
+                <p class="invalid-message">Falsches Passwort!</p>
+            @endif
 
             <%-- Username input --%>
             <label for="nameInput">Username:</label>

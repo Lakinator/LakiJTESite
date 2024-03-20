@@ -15,7 +15,7 @@
     <description>LakiJTESite</description>
     <properties>
         <java.version>21</java.version>
-        <jte.version>3.1.6</jte.version>
+        <jte.version>3.1.9</jte.version>
         <eclipse.store.version>1.0.0</eclipse.store.version>
         <eclipse.store.configuration.version>1.0.0</eclipse.store.configuration.version>
     </properties>
@@ -28,6 +28,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
         <dependency>

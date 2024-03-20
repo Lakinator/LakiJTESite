@@ -1,5 +1,5 @@
 @import de.lakinator.lakijtesite.model.PageContext
-@import de.lakinator.lakijtesite.model.VisitorInfoDTO
+@import de.lakinator.lakijtesite.home.VisitorInfoDTO
 
 @param PageContext pageContext
 @param VisitorInfoDTO visitorInfo

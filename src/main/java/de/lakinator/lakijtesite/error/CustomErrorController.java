@@ -1,4 +1,4 @@
-package de.lakinator.lakijtesite.controller;
+package de.lakinator.lakijtesite.error;
 
 import de.lakinator.lakijtesite.model.PageContext;
 import de.lakinator.lakijtesite.persistence.model.User;
@@ -17,7 +17,11 @@ public class CustomErrorController implements ErrorController {
     Map<Integer, String> errorCodeMap = Map.of( 123, "Could not persist new user!", 124, "User already logged in!" ); // TODO: custom enum
 
     @RequestMapping( "/error" )
-    public String handleError( Model model, @AuthenticationPrincipal User user, @RequestParam Integer code ) {
+    public String handleError( Model model, @AuthenticationPrincipal User user, @RequestParam( name = "code", required = false ) Integer code ) {
+        if ( code == null ) {
+            code = 0;
+        }
+
         model.addAttribute( "pageContext", new PageContext( "Error page", "This is the default error page", user ) );
         model.addAttribute( "errorMsg", errorCodeMap.getOrDefault( code, "No corresponding error found" ) );
         return "error";

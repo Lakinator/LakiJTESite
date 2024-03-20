@@ -1,27 +1,34 @@
 package de.lakinator.lakijtesite.persistence.model;
 
+import de.lakinator.lakijtesite.security.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class User implements UserDetails {
 
-    private String name;
+    private final String name;
+
+    private String displayName;
 
     private String email;
 
     private String password;
 
-    private final List<String> roles;
+    private final List<UserRole> roles;
 
     private boolean active;
 
+    private LocalDateTime lastLogin;
+
     public User( String name, String email, String password ) {
         this.name = name;
+        this.displayName = name;
         this.email = email;
         this.password = password;
         this.roles = new ArrayList<>();
@@ -36,13 +43,13 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public List<String> getRoles() {
+    public List<UserRole> getRoles() {
         return roles;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream().map( SimpleGrantedAuthority::new ).toList();
+        return roles.stream().map( userRole -> new SimpleGrantedAuthority( userRole.name() ) ).toList();
     }
 
     @Override
@@ -59,8 +66,12 @@ public class User implements UserDetails {
         return name;
     }
 
-    public void setName( String name ) {
-        this.name = name;
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName( String displayName ) {
+        this.displayName = displayName;
     }
 
     @Override
@@ -85,5 +96,25 @@ public class User implements UserDetails {
 
     public void setActive( boolean active ) {
         this.active = active;
+    }
+
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin( LocalDateTime lastLogin ) {
+        this.lastLogin = lastLogin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                ", lastLogin=" + lastLogin +
+                '}';
     }
 }

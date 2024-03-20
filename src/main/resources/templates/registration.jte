@@ -1,4 +1,4 @@
-@import de.lakinator.lakijtesite.model.AuthenticationUserDTO
+@import de.lakinator.lakijtesite.registration.AuthenticationUserDTO
 @import de.lakinator.lakijtesite.model.PageContext
 
 @param PageContext pageContext
@@ -12,6 +12,7 @@ content = @`
         <form action="/registration" method="POST">
             <header>
                 <h2>Registration Form</h2>
+                <p>Du kannst deinen Anzeigenamen später ändern!</p>
             </header>
 
             <%-- Username input --%>
