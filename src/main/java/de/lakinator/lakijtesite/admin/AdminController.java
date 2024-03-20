@@ -24,11 +24,11 @@ public class AdminController {
     public String adminView( Model model, @AuthenticationPrincipal User user ) {
         model.addAttribute( "pageContext", new PageContext( "Admin page", "Nice description", user ) );
         model.addAttribute( "details", new AdminDetailDTO( storageService.getUsers() ) );
-        return "admin";
+        return "admin/admin";
     }
 
-    @GetMapping( "/admin/user/{username}/edit" )
-    public String adminView( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
+    @GetMapping( "/admin/user/{username}" )
+    public String getSingleUserView( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
         Optional<User> optionalUser = storageService.getUserByName( username );
 
         if ( optionalUser.isEmpty() ) {
@@ -36,7 +36,19 @@ public class AdminController {
         }
 
         model.addAttribute( "user", optionalUser.get() );
-        return "editUserForm";
+        return "admin/singleUserView";
+    }
+
+    @GetMapping( "/admin/user/{username}/edit" )
+    public String editUserView( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
+        Optional<User> optionalUser = storageService.getUserByName( username );
+
+        if ( optionalUser.isEmpty() ) {
+            return "redirect:/admin";
+        }
+
+        model.addAttribute( "user", optionalUser.get() );
+        return "admin/editUserForm";
     }
 
 }

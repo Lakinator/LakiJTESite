@@ -28,19 +28,7 @@ content = @`
             </thead>
             <tbody hx-target="closest tr" hx-swap="outerHTML">
             @for(User user : details.userList())
-                <tr>
-                    <td>${user.getUsername()}</td>
-                    <td>${user.getDisplayName()}</td>
-                    <td>${user.getEmail()}</td>
-                    <td>${user.getPassword()}</td>
-                    <td>${Arrays.toString( user.getRoles().toArray() )}</td>
-                    <td>${user.getLastLogin().toString()}</td>
-                    <td>
-                        <button hx-get="/admin/user/${user.getUsername()}/edit">
-                            Edit
-                        </button>
-                    </td>
-                </tr>
+                @template.admin.singleUserView(user = user)
             @endfor
             </tbody>
         </table>
