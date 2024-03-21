@@ -8,33 +8,44 @@
 
 @template.layout(pageContext = pageContext,
 content = @`
-    <section>
-        <form action="/login" method="POST">
-            <header>
-                <h2>Login Form</h2>
-            </header>
+    <article>
 
-            @if(loginError)
-                <p class="invalid-message">Falsches Passwort!</p>
-            @endif
+        <div class="row">
+            <i class="large">login</i>
+            <div class="max">
+                <h5>Login</h5>
+                @if(loginError)
+                    <p class="error">Falsches Passwort!</p>
+                @endif
+            </div>
+        </div>
+
+        <div class="medium-space"></div>
+
+        <form action="/login" method="POST">
 
             <%-- Username input --%>
-            <label for="nameInput">Username:</label>
-            <input value="${user != null ? user.username() : ""}"
-                   type="text" id="nameInput" name="username" placeholder="Username"
-                   minlength="4" maxlength="32" required>
+            <div class="s12 field label border">
+                <input value="${user != null ? user.username() : ""}"
+                       type="text" id="nameInput" name="username"
+                       minlength="4" maxlength="32" required>
+                <label for="nameInput">Nutzername</label>
+            </div>
 
             <%-- Password input --%>
-            <label for="passwordInput">Password:</label>
-            <input type="password" id="passwordInput" name="password"
-                   minlength="6" maxlength="32" required>
-            @for(String passwordError : passwordErrors)
-                <p class="invalid-message">${passwordError}</p>
-            @endfor
+            <div class="field label border ${passwordErrors.length > 0 ? "invalid" : ""}">
+                <input type="password" id="passwordInput" name="password"
+                       minlength="6" maxlength="32" required>
+                <label for="passwordInput">Passwort</label>
+                @for(String passwordError : passwordErrors)
+                    <span class="error">${passwordError}</span>
+                @endfor
+            </div>
 
             <button type="submit">Submit</button>
         </form>
-    </section>
+
+    </article>
 `,
 footer = @`
     <p>Have fun!</p>
