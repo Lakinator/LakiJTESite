@@ -64,6 +64,12 @@
         <i>emoji_people</i>
         <div>Besucher</div>
     </a>
+    @if(user != null && user.admin())
+        <a href="/admin">
+            <i>admin_panel_settings</i>
+            <div>Admin Bereich</div>
+        </a>
+    @endif
     <div class="divider"></div>
     <label>Nutzer</label>
     @if (user == null)
@@ -94,6 +100,12 @@
         <i>emoji_people</i>
         <span>Besucher</span>
     </a>
+    @if(user != null && user.admin())
+        <a href="/admin">
+            <i>admin_panel_settings</i>
+            <span>Admin</span>
+        </a>
+    @endif
     @if (user == null)
         <a href="/login">
             <i>login</i>
