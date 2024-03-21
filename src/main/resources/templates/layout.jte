@@ -38,14 +38,14 @@
 
 <%-- App bar --%>
 
-<header>
-    <nav>
-        <h5 class="max center-align">${pageContext.title()}</h5>
-        <%--        <button class="circle transparent">--%>
-        <%--            <img class="responsive" src="/favicon.png">--%>
-        <%--        </button>--%>
-    </nav>
-</header>
+<%--<header>--%>
+<%--    <nav>--%>
+<%--        <h5 class="max center-align">${pageContext.title()}</h5>--%>
+<%--        --%><%--        <button class="circle transparent">--%>
+<%--        --%><%--            <img class="responsive" src="/favicon.png">--%>
+<%--        --%><%--        </button>--%>
+<%--    </nav>--%>
+<%--</header>--%>
 
 <%-- Sidebar vor large screens --%>
 
@@ -117,9 +117,11 @@
     @if (content != null)
         ${content}
     @else
-        <p>Got to the login page <a href="/login">here</a></p>
-        <p>Got to the registration page <a href="/registration">here</a></p>
-        <p>Got to the visitor page <a href="/visitors">here</a></p>
+        <h3>Willkommen!</h3>
+        <div class="row">
+            <h5>Under construction</h5>
+            <i class="extra">construction</i>
+        </div>
     @endif
 </main>
 
