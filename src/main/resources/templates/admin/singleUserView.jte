@@ -11,7 +11,10 @@
     <td>${Arrays.toString( user.getRoles().toArray() )}</td>
     <td>${user.getLastLogin().toString()}</td>
     <td>
-        <button hx-get="/admin/user/${user.getUsername()}/edit">
+        <button
+                hx-trigger="click"
+                hx-get="/admin/user/${user.getUsername()}/edit-dialog"
+                hx-target="#editUserDialogContainer">
             Edit
         </button>
     </td>

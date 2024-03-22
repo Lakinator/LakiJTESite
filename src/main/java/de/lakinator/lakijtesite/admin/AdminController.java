@@ -51,4 +51,28 @@ public class AdminController {
         return "admin/editUserForm";
     }
 
+    @GetMapping( "/admin/user/{username}/edit-dialog" )
+    public String editUserDialog( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
+        Optional<User> optionalUser = storageService.getUserByName( username );
+
+        if ( optionalUser.isEmpty() ) {
+            return "redirect:/admin";
+        }
+
+        model.addAttribute( "user", optionalUser.get() );
+        return "admin/editUserDialog";
+    }
+
+    @GetMapping( "/admin/user/{username}/cancel-dialog" )
+    public String cancelUserDialog( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
+        Optional<User> optionalUser = storageService.getUserByName( username );
+
+        if ( optionalUser.isEmpty() ) {
+            return "redirect:/admin";
+        }
+
+        System.out.println( "Edit user dialog was canceled" );
+        return ""; // TODO: return empty html
+    }
+
 }
