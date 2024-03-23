@@ -72,7 +72,7 @@ public class AdminController {
         }
 
         System.out.println( "Edit user dialog was canceled" );
-        return ""; // TODO: return empty html
+        return "empty";
     }
 
 }
