@@ -11,24 +11,11 @@ content = @`
         <h2>Admin view</h2>
         <p>lmao</p>
     </header>
-    <table>
-        <thead>
-        <tr>
-            <th>Username</th>
-            <th>Display Name</th>
-            <th>E-Mail</th>
-            <th>Passwort</th>
-            <th>Rollen</th>
-            <th>Letzter Login</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="grid">
         @for(User user : details.userList())
             @template.admin.singleUserView(user = user)
         @endfor
-        </tbody>
-    </table>
+    </div>
     <div id="editUserDialogContainer"></div>
 `,
 footer = @`

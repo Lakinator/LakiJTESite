@@ -39,6 +39,30 @@ public class AdminController {
         return "admin/singleUserView";
     }
 
+    @GetMapping( "/admin/user/{username}/password" )
+    public String getUserPassword( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
+        Optional<User> optionalUser = storageService.getUserByName( username );
+
+        if ( optionalUser.isEmpty() ) {
+            return "redirect:/admin";
+        }
+
+        model.addAttribute( "user", optionalUser.get() );
+        return "admin/passwordView";
+    }
+
+    @GetMapping( "/admin/user/{username}/password-obscured" )
+    public String getUserPasswordObscured( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
+        Optional<User> optionalUser = storageService.getUserByName( username );
+
+        if ( optionalUser.isEmpty() ) {
+            return "redirect:/admin";
+        }
+
+        model.addAttribute( "user", optionalUser.get() );
+        return "admin/passwordObscuredView";
+    }
+
     @GetMapping( "/admin/user/{username}/edit" )
     public String editUserView( Model model, @AuthenticationPrincipal User user, @PathVariable( "username" ) String username ) {
         Optional<User> optionalUser = storageService.getUserByName( username );
