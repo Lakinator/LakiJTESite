@@ -19,4 +19,5 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t lakijtesite .
+          docker tag lakijtesite lakinator/lakijtesite
           docker push lakinator/lakijtesite
