@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build and test
-        run: ./mvnw clean package
+        run: sudo ./mvnw clean package
       - name: Build Docker image
         run: |
           docker build -t lakijtesite .
